@@ -58,20 +58,20 @@ finished = check_yes_no(finished)
 # price and how much the user has in stock
 while finished == "yes":
     # ask for the name of the stock item
-    menu_item = input("What is the name of the menu item?    ")
-    menu_item_check = check_repeat(menu_item,stock)
+    menu_entry = input("What is the name of the menu item?    ")
+    menu_entry_check = check_repeat(menu_entry,stock)
 
     # if the user has repeated a stock item name and does not want to
     # overwrite the data then move on to next iteration
-    if menu_item_check == 'no':
+    if menu_entry_check == 'no':
         finished = input("Do you have more menu items to input?    ")
         finished = check_yes_no(finished)
         continue
 
     # if the user wants to overwrite previous data the stock_amount *
     # price_input from data with the same name is removed from total_stock
-    elif menu_item_check == "yes":
-        total_stock -= stock.get(menu_item) * stock.get(menu_item)
+    elif menu_entry_check == "yes":
+        total_stock -= stock.get(menu_entry) * stock.get(menu_entry)
 
 
     stock_amount = input("How much do you have in stock:    ")
@@ -80,11 +80,11 @@ while finished == "yes":
     price_input = input("How much does it cost (in £)?     ")
     price_input = check_number(price_input)
 
-    #add menu_item to menu, {menu_item:stock_amount} to stock and {menu_item
+    #add menu_entry to menu, {menu_entry:stock_amount} to stock and {menu_entry
     # , price_input}
-    menu.append(menu_item)
-    stock[menu_item] = stock_amount
-    price[menu_item] = price_input
+    menu.append(menu_entry)
+    stock[menu_entry] = stock_amount
+    price[menu_entry] = price_input
     total_stock  += stock_amount * price_input
 
 
