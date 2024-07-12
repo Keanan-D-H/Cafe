@@ -2,21 +2,36 @@
 
 # Function Definitions
 
-# check_yes_no function checks whether an input is either 'yes' or 'no'
-# The function will repeatedly ask for an input until it is either 'yes'
-# or 'no'
-# The parameter 'answer' is a string
-# returns 'answer' (either yes or no)
+
 def check_yes_no(answer):
+    """
+    check_yes_no function checks whether an input is either 'yes' or 'no'
+    The function will repeatedly ask for an input until it is either 'yes'
+    or 'no'
+    
+    Parameter    :      
+                 answer : str
+                 
+     Returns    : 
+                 answer : str    
+                     either 'yes' or 'no'
+    """
     while answer !='yes' and answer != 'no':
         answer = input ('Please only put in \'yes\' or \'no\'    ')
     return answer
 
-# check_number function tries to turn 'item' to a float, if it can not
-# it will ask for a new input until a number is inputted
-# the 'item' parameter is a string
-# returns float(item)
+
 def check_number(item): 
+    """
+    check_number tries to turn 'item' to a float, if it can not
+    it will ask for a new input until a number is inputted. 
+    
+    Parameter    :    
+                    item : str
+
+    Returns      :
+                    item : float
+    """
     while type(item) != float:
         try:
             item = float(item)
@@ -25,13 +40,23 @@ def check_number(item):
     return item
 
 
-# check_repeat function checks if the user has inputted a value previously
-# if they have, the program will ask them if they want to overwrite the
-# previously input data 
-# item is a string and dictionary is a dictionary string would be stored in
-# returns 'yes' if they want to overwrite, no if they don't and 'no repeat'
-# if the item wasn't in the dictionary to begin with
+
 def check_repeat (item, dictionary):
+    """
+    check_repeat function checks if the user has inputted a value previously
+    if they have, the program will ask them if they want to overwrite the
+    previously input data. 
+
+    Parameters    : 
+                    item : str    
+                    dictionary : dict
+
+    Returns        :
+                    repeat : str
+                        "yes" if a the user wishes to overwrite or "no" if they don't
+                    "no repeat" : str
+                        if item is not found in dictionary
+    """
     if dictionary.get(item) != None:
         repeat = input(f"""Unfortunately, {item} is already in our recorded 
 list.If we carry on with this item our previous record
